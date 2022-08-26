@@ -13,7 +13,7 @@ Northwest Missouri State University
 
 ## Team members & Roles
 Sajida Mohammad - Database Developer
-
+Usha Pati- Quality Assurance Engineer
 
 
 
