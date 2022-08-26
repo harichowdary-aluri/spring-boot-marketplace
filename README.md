@@ -12,7 +12,7 @@ Assistant Professor, Applied Commputer Science</br>
 Northwest Missouri State University
 
 ## Team members & Roles
-Sajida Mohammad - Database Developer
+Sajida Mohammad - Database Developer</br>
 Usha Pati- Quality Assurance Engineer
 
 
