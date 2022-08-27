@@ -14,6 +14,7 @@ Northwest Missouri State University
 ## Team members & Roles
 Sajida Mohammad - Database Developer</br>
 Usha Pati- Quality Assurance Engineer</br>
-Hari kiran Aluri - Backend Developer 
+Hari kiran Aluri - Backend Developer</br>
+Kiran Kumar Gundapuneni - Java Developer
 
 
