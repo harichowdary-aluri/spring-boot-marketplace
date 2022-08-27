@@ -25,7 +25,8 @@ Kiran Kumar Gundapuneni - Java Developer
 
 ## Credits
 Sajida Mohammad -[Github](https://github.com/MSajida)</br> 
-Usha Pati -</br>
+Usha Pati -=[GITHUB](https://github.com/ushareddypati)
+[linked in ](https://www.linkedin.com/in/usha-pati-96374323a)</br>
 Hari Kiran Aluri -</br>
 Kiran Kumar Gundapuneni - [Linked In](https://www.linkedin.com/in/kiran-gundapuneni-35b01320b/) [Github](https://github.com/kirangundapuneni)
 
