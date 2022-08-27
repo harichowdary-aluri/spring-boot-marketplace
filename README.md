@@ -23,4 +23,11 @@ Usha Pati- Quality Assurance Engineer</br>
 Hari kiran Aluri - Backend Developer</br>
 Kiran Kumar Gundapuneni - Java Developer
 
+## Credits
+Sajida Mohammad -[Github](https://github.com/MSajida)</br> 
+Usha Pati -</br>
+Hari Kiran Aluri -</br>
+Kiran Kumar Gundapuneni - [Linked In](https://www.linkedin.com/in/kiran-gundapuneni-35b01320b/) [Github](https://github.com/kirangundapuneni)
+
+
 
