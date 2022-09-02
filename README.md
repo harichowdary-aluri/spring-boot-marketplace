@@ -49,6 +49,19 @@ Expected entities(will make changes as we go further)
    - City
    - State
    - Zip
+   
+   ## Entities in Table 2
+Expected entities(will make changes as we go further)
+- Products
+   - productId
+   - Name 
+   - Description
+   - Category
+   - price
+   - qtyAvailable
+   - SellerName
+   - sellerContactInfo
+   - Sold
 
 
 
