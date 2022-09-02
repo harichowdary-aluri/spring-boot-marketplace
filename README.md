@@ -37,9 +37,18 @@ Usha Pati -=[GITHUB](https://github.com/ushareddypati)
 Harikiran Aluri-[Hari Kiran Aluri](https://www.linkedin.com/in/hari-kiran-626715193)</br>
 Kiran Kumar Gundapuneni - [Linked In](https://www.linkedin.com/in/kiran-gundapuneni-35b01320b/) [Github](https://github.com/kirangundapuneni)
 
-## Database Tables
-## Table Name  and  Attributes
-Student - SID, FirstName, LastName, PhoneNo, EmailId, Address
+## Entities
+Expected entities(will make changes as we go further)
+- Student
+   - SID
+   - FirstName 
+   - LastName
+   - PhoneNo
+   - EmailId
+   - Address
+   - City
+   - State
+   - Zip
 
 
 
