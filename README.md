@@ -20,9 +20,9 @@ Northwest Missouri State University
 
 ## Technical Stack
 A web application that uses Spring and Angular as Front end and backend  framework with MYSQL as it's backend database with a slick UI user interface.
-Frontend - Angular
-Backend - Springboot
-Database - Mysql
+Frontend - Angular </br>
+Backend - Springboot </br>
+Database - Mysql </br>
 
 ## Team members & Roles
 Sajida Mohammad - Database Developer</br>
