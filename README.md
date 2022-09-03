@@ -24,6 +24,9 @@ Frontend - Angular </br>
 Backend - Springboot </br>
 Database - Mysql </br>
 
+## Testing for Spring Application
+Either [JUnit](https://junit.org/junit4/) or [NGTesting](https://testng.org/doc/) would be used for testing the spring application
+
 ## Team members & Roles
 Sajida Mohammad - Database Developer</br>
 Usha Pati- Quality Assurance Engineer</br>
