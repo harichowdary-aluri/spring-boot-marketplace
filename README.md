@@ -59,12 +59,18 @@ Expected entities(will make changes as we go further)
    - productId
    - Name 
    - Description
-   - Category
+   - CategoryId
    - price
    - qtyAvailable
    - SellerName
    - sellerContactInfo
    - Sold
+   
+   ## Entities in Table 3(Category)
+ - Category
+   - categoryId
+   - name   
+   
   ## Selenium Testing :
   
   Selenium is a free (open-source) automated testing framework used to verify web applications across many platforms and browsers. To construct Selenium Test Scripts, you can use a variety of computer languages, including Java, C#, and Python. Selenium testing is the term used to describe testing carried out with the Selenium testing tool.
