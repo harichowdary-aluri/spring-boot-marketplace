@@ -9,7 +9,9 @@
 ## Project Objective
  The main purpose of this project is to develop a web application for Northwest Missouri State University, which facilitates the users to purchase and auction the products like vehicles, house hold utilities, clothing, electronics, gardening tools and equipments.
  
-## Project Wiki [Wiki Link](https://github.com/harichowdary-aluri/gdp_1-project/wiki)
+## Project Wiki
+
+[**Wiki Link**](https://github.com/harichowdary-aluri/gdp_1-project/wiki)
 
 ## Project Description
 The main theme of this project is to auction and purchase different products among the Northwest Missouri State University family . Every individual who are using this application need to login initially using their Student id. The person who is ready to auction the product need to include the pictures of items, the cost of item, location for pickup and contact information. In the page, if buyer wants the product he/she is  given an option to pay using credit, debit,check and cash. 
