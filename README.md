@@ -18,7 +18,7 @@ The main theme of this project is to auction and purchase different products amo
 
 ## Client
 Dr.ChandraMouli Kotteti </br>
-Assistant Professor, Applied Computer Science</br>
+Assistant Professor, School of Computer Science and Information Systems</br>
 Northwest Missouri State University
 
 
