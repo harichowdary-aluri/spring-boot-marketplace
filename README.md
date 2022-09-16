@@ -8,13 +8,17 @@
 
 ## Project Objective
  The main purpose of this project is to develop a web application for Northwest Missouri State University, which facilitates the users to purchase and auction the products like vehicles, house hold utilities, clothing, electronics, gardening tools and equipments.
+ 
+## Project Wiki
+
+[**Link to wiki pag **](https://github.com/harichowdary-aluri/gdp_1-project/wiki)
 
 ## Project Description
 The main theme of this project is to auction and purchase different products among the Northwest Missouri State University family . Every individual who are using this application need to login initially using their Student id. The person who is ready to auction the product need to include the pictures of items, the cost of item, location for pickup and contact information. In the page, if buyer wants the product he/she is  given an option to pay using credit, debit,check and cash. 
 
 ## Client
 Dr.ChandraMouli Kotteti </br>
-Assistant Professor, Applied Computer Science</br>
+Assistant Professor, School of Computer Science and Information Systems</br>
 Northwest Missouri State University
 
 
@@ -28,6 +32,7 @@ Database - Mysql </br>
 Either [JUnit](https://junit.org/junit4/) or [NGTesting](https://testng.org/doc/) would be used for testing the spring application
 
 ## Team members & Roles
+Dr.Chandra Mouli kotteti</br>
 Sajida Mohammad - Database Developer</br>
 Usha Pati- Quality Assurance Engineer</br>
 Hari kiran Aluri - Backend Developer</br>
@@ -71,11 +76,21 @@ Expected entities(will make changes as we go further)
    - categoryId
    - name   
    
+   ## Table 4(ProductsSold)
+ - ProductsSold
+   - productId
+   - productName
+   - productDescription
+   - quantitySold
+   - categoryId
+   - SID
+   
+   
   ## Selenium Testing :
   
   Selenium is a free (open-source) automated testing framework used to verify web applications across many platforms and browsers. To construct Selenium Test Scripts, you can use a variety of computer languages, including Java, C#, and Python. Selenium testing is the term used to describe testing carried out with the Selenium testing tool.
 
-
+[Project](https://github.com/users/harichowdary-aluri/projects/5)
 
 
 
