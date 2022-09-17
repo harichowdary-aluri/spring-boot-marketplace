@@ -19,7 +19,9 @@ The main theme of this project is to auction and purchase different products amo
 ## Client
 Dr.ChandraMouli Kotteti </br>
 Assistant Professor, School of Computer Science and Information Systems</br>
-Northwest Missouri State University
+Northwest Missouri State University</br>
+<b>GitHub Link : </b> [https://github.com/cm2kotteti](https://github.com/cm2kotteti)
+
 
 
 ## Technical Stack
