@@ -47,46 +47,7 @@ Usha Pati - [GITHUB usha](https://github.com/ushareddypati)</br>
 Harikiran Aluri-[Hari Kiran Aluri](https://www.linkedin.com/in/hari-kiran-626715193)</br>
 Kiran Kumar Gundapuneni - [Linked In](https://www.linkedin.com/in/kiran-gundapuneni-35b01320b/) [Github](https://github.com/kirangundapuneni)
 
-## Entities
-Expected entities(will make changes as we go further)
-- Student
-   - SID
-   - FirstName 
-   - LastName
-   - PhoneNo
-   - EmailId
-   - Address
-   - City
-   - State
-   - Zip
-   
-   ## Entities in Table 2
-Expected entities(will make changes as we go further)
-- Products
-   - productId
-   - Name 
-   - Description
-   - CategoryId
-   - price
-   - qtyAvailable
-   - SellerName
-   - sellerContactInfo
-   - Sold
-   
-   ## Entities in Table 3(Category)
- - Category
-   - categoryId
-   - name   
-   
-   ## Table 4(ProductsSold)
- - ProductsSold
-   - productId
-   - productName
-   - productDescription
-   - quantitySold
-   - categoryId
-   - SID
-   
+
    
   ## Selenium Testing :
   
