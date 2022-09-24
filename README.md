@@ -4,6 +4,7 @@
 - [Project Objective](#objective)
 - [Project Description](#description)
 - [Client](#client)
+- [Technical Stack](#stack)
 - [Team members & Roles](#roles)
 
 ## Project Objective <a name="objective"></a>
@@ -24,7 +25,7 @@ Northwest Missouri State University</br>
 
 
 
-## Technical Stack
+## Technical Stack <a name="stack"></a>
 A web application that uses Spring and Angular as Front end and backend  framework with MYSQL as it's backend database with a slick UI user interface.
 Frontend - Angular </br>
 Backend - Springboot </br>
