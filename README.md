@@ -14,6 +14,10 @@
 
 [**Link to wiki page **](https://github.com/harichowdary-aluri/gdp_1-project/wiki)
 
+## Link to projects Page
+
+[**Link to projects page **](https://github.com/harichowdary-aluri/gdp_1-project/projects)
+
 ## Project Description <a name="description"></a>
 The main theme of this project is to auction and purchase different products among the Northwest Missouri State University family . Every individual who are using this application need to login initially using their Student id. The person who is ready to auction the product need to include the pictures of items, the cost of item, location for pickup and contact information. In the page, if buyer wants the product he/she is  given an option to pay using credit, debit,check and cash. 
 
@@ -54,7 +58,6 @@ Kiran Kumar Gundapuneni - [Linked In](https://www.linkedin.com/in/kiran-gundapun
   
   Selenium is a free (open-source) automated testing framework used to verify web applications across many platforms and browsers. To construct Selenium Test Scripts, you can use a variety of computer languages, including Java, C#, and Python. Selenium testing is the term used to describe testing carried out with the Selenium testing tool.
 
-[Project](https://github.com/users/harichowdary-aluri/projects/5)
 
 ## Database link 
 [Remote Database URL](https://www.freesqldatabase.com/)
