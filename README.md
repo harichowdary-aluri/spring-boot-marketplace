@@ -6,6 +6,7 @@
 - [Client](#client)
 - [Technical Stack](#stack)
 - [Team members & Roles](#roles)
+- [Entities](#entities)
 
 ## Project Objective <a name="objective"></a>
  The main purpose of this project is to develop a web application for Northwest Missouri State University, which facilitates the users to purchase and auction the products like vehicles, house hold utilities, clothing, electronics, gardening tools and equipments.
@@ -30,7 +31,7 @@ Northwest Missouri State University</br>
 
 
 ## Technical Stack <a name="stack"></a>
-A web application that uses Spring and Angular as Front end and backend  framework with MYSQL as it's backend database with a slick UI user interface.
+A web application that uses Spring and Angular as Front end and backend  framework with MYSQL as it's backend database with a slick UI user interface.</br>
 Frontend - Angular </br>
 Backend - Springboot </br>
 Database - Mysql </br>
@@ -39,10 +40,10 @@ Database - Mysql </br>
 Either [JUnit](https://junit.org/junit4/) or [NGTesting](https://testng.org/doc/) would be used for testing the spring application
 
 ## Team members & Roles <a name="roles"></a>
-Dr.Chandra Mouli kotteti</br>
+Dr.Chandra Mouli kotteti </br>
 Sajida Mohammad - Database Developer</br>
 Usha Pati- Quality Assurance Engineer</br>
-Hari kiran Aluri - Backend Developer</br>
+Hari kiran Aluri - frontend Developer/team lead</br>
 Kiran Kumar Gundapuneni - Java Developer
 
 ## Credits
@@ -51,7 +52,40 @@ Usha Pati - [GITHUB : ](https://github.com/ushareddypati)</br>
 [linked in : ](https://www.linkedin.com/in/usha-pati-96374323a)</br>
 Harikiran Aluri-[Hari Kiran Aluri](https://www.linkedin.com/in/hari-kiran-626715193)</br>
 Kiran Kumar Gundapuneni - [Linked In](https://www.linkedin.com/in/kiran-gundapuneni-35b01320b/) [Github](https://github.com/kirangundapuneni)
-
+ 
+ ## Entities <a name="entities"></a>
+Expected entities(will make changes as we go further)
+- Student
+   - SID
+   - FirstName 
+   - LastName
+   - PhoneNo
+   - EmailId
+   - Address
+   - City
+   - State
+   - Zip
+   
+   ## Entities in Table 2
+Expected entities(will make changes as we go further)
+- Products
+   - productId
+   - Name 
+   - Description
+   - CategoryId
+   - price
+   - qtyAvailable
+   - SellerName
+   - sellerContactInfo
+   - Sold
+   - quantitySold
+   
+   ## Entities in Table 3(Category)
+ - Category
+   - categoryId
+   - name   
+   
+ 
 
    
   ## Selenium Testing :
