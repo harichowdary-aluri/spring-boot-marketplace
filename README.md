@@ -6,6 +6,7 @@
 - [Client](#client)
 - [Technical Stack](#stack)
 - [Team members & Roles](#roles)
+- [Entities](#entities)
 
 ## Project Objective <a name="objective"></a>
  The main purpose of this project is to develop a web application for Northwest Missouri State University, which facilitates the users to purchase and auction the products like vehicles, house hold utilities, clothing, electronics, gardening tools and equipments.
@@ -52,7 +53,7 @@ Usha Pati - [GITHUB : ](https://github.com/ushareddypati)</br>
 Harikiran Aluri-[Hari Kiran Aluri](https://www.linkedin.com/in/hari-kiran-626715193)</br>
 Kiran Kumar Gundapuneni - [Linked In](https://www.linkedin.com/in/kiran-gundapuneni-35b01320b/) [Github](https://github.com/kirangundapuneni)
  
- ## Entities
+ ## Entities <a name="entities"></a>
 Expected entities(will make changes as we go further)
 - Student
    - SID
