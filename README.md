@@ -95,3 +95,7 @@ Expected entities(will make changes as we go further)
 
 ## Database link 
 [Remote Database URL](https://www.freesqldatabase.com/)
+
+## Login to MarketPlace
+
+<a href = "login/login.component.html">login page</a>
