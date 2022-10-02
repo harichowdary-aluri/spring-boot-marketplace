@@ -98,4 +98,6 @@ Expected entities(will make changes as we go further)
 
 ## Login to MarketPlace
 
-<a href = "login/login.component.html">login page</a>
+<a href = "app/login/login.component.html">login page</a>
+
+[login page](https://github.com/harichowdary-aluri/gdp_1-project/blob/main/app/login/login.component.html)
