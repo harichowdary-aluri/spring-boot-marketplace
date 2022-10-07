@@ -7,14 +7,11 @@
 - [Technical Stack](#stack)
 - [Team members & Roles](#roles)
 - [Entities](#entities)
+- [Testing](#testing)
 
 ## Project Objective <a name="objective"></a>
  The main purpose of this project is to develop a web application for Northwest Missouri State University, which facilitates the users to purchase and auction the products like vehicles, house hold utilities, clothing, electronics, gardening tools and equipments.
  
-## Project Wiki
-
-[**Link to wiki page **](https://github.com/harichowdary-aluri/gdp_1-project/wiki)
-
 ## Link to projects Page
 
 [**Link to projects page **](https://github.com/harichowdary-aluri/gdp_1-project/projects)
@@ -29,15 +26,11 @@ Northwest Missouri State University</br>
 <b>GitHub Link : </b> [https://github.com/cm2kotteti](https://github.com/cm2kotteti)
 
 
-
 ## Technical Stack <a name="stack"></a>
 A web application that uses Spring and Angular as Front end and backend  framework with MYSQL as it's backend database with a slick UI user interface.</br>
 Frontend - Angular </br>
 Backend - Springboot </br>
 Database - Mysql </br>
-
-## Testing for Spring Application
-Either [JUnit](https://junit.org/junit4/) or [NGTesting](https://testng.org/doc/) would be used for testing the spring application
 
 ## Team members & Roles <a name="roles"></a>
 Dr.Chandra Mouli kotteti </br>
@@ -52,6 +45,10 @@ Usha Pati - [GITHUB : ](https://github.com/ushareddypati)</br>
 [linked in : ](https://www.linkedin.com/in/usha-pati-96374323a)</br>
 Harikiran Aluri-[Hari Kiran Aluri](https://www.linkedin.com/in/hari-kiran-626715193)</br>
 Kiran Kumar Gundapuneni - [Linked In](https://www.linkedin.com/in/kiran-gundapuneni-35b01320b/) [Github](https://github.com/kirangundapuneni)
+
+## Project Wiki
+
+[**Link to wiki page **](https://github.com/harichowdary-aluri/gdp_1-project/wiki)
  
  ## Entities <a name="entities"></a>
 Expected entities(will make changes as we go further)
@@ -85,18 +82,18 @@ Expected entities(will make changes as we go further)
    - categoryId
    - name   
    
- 
+  ## Testing for Spring Application <a name="testing"></a>
+   Either [JUnit](https://junit.org/junit4/) or [NGTesting](https://testng.org/doc/) would be used for testing the spring application
 
-   
   ## Selenium Testing :
   
-  Selenium is a free (open-source) automated testing framework used to verify web applications across many platforms and browsers. To construct Selenium Test Scripts, you can use a variety of computer languages, including Java, C#, and Python. Selenium testing is the term used to describe testing carried out with the Selenium testing tool.
+  Selenium is a free (open-source) automated testing framework used to verify web applications across many platforms and browsers. To construct Selenium Test   Scripts, you can use a variety of computer languages, including Java, C#, and Python. Selenium testing is the term used to describe testing carried out with the Selenium testing tool.
 
 
-## Database link 
+  ## Database link 
 [Remote Database URL](https://www.freesqldatabase.com/)
 
-## Login to MarketPlace
+  ## Login to MarketPlace
 
 <a href = "app/login/login.component.html">login page</a>
 
