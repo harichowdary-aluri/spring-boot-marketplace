@@ -14,6 +14,8 @@ public class Student implements Persistable<String>{
 	private String firstName;
 	@Column(name="lastName")
 	private String lastName;
+	@Column(name="password")
+	private String password;
 	@Column(name="email")
 	private String email;
 	@Column(name="phoneNumber")
@@ -27,12 +29,13 @@ public class Student implements Persistable<String>{
 	@Column(name="zip")
 	private String zip;
 	
-	public Student(String sID, String firstName, String lastName, String email, String phoneNumber, String address,
+	public Student(String sID, String firstName, String lastName, String password,String email, String phoneNumber, String address,
 			String city, String state, String zip) {
 		super();
 		this.sID = sID;
 		this.firstName = firstName;
 		this.lastName = lastName;
+		this.password= password;
 		this.email = email;
 		this.phoneNumber = phoneNumber;
 		this.address = address;
@@ -65,6 +68,16 @@ public class Student implements Persistable<String>{
 
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
+	}
+	
+	public String getPassword()
+	{
+		return password;
+	}
+	
+	public void setPassword(String password)
+	{
+		this.password= password;
 	}
 
 	public String getEmail() {
