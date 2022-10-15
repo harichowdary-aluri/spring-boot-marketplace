@@ -48,7 +48,7 @@ Kiran Kumar Gundapuneni - [Linked In](https://www.linkedin.com/in/kiran-gundapun
 
 ## Project Wiki
 
-[**Link to wiki page **](https://github.com/harichowdary-aluri/gdp_1-project/wiki)
+[**Link to wiki page **](https://github.com/harichowdary-aluri/gdp_1-project/wiki/)
  
  ## Entities <a name="entities"></a>
 Expected entities(will make changes as we go further)
