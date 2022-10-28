@@ -48,7 +48,7 @@ Kiran Kumar Gundapuneni - [Linked In](https://www.linkedin.com/in/kiran-gundapun
 
 ## Project Wiki
 
-[**Link to wiki page **](https://github.com/harichowdary-aluri/gdp_1-project/wiki)
+[**Link to wiki page **](https://github.com/harichowdary-aluri/gdp_1-project/wiki/)
  
  ## Entities <a name="entities"></a>
 Expected entities(will make changes as we go further)
@@ -88,7 +88,6 @@ Expected entities(will make changes as we go further)
   ## Selenium Testing :
   
   Selenium is a free (open-source) automated testing framework used to verify web applications across many platforms and browsers. To construct Selenium Test   Scripts, you can use a variety of computer languages, including Java, C#, and Python. Selenium testing is the term used to describe testing carried out with the Selenium testing tool.
-
 
   ## Database link 
 [Remote Database URL](https://www.freesqldatabase.com/)
