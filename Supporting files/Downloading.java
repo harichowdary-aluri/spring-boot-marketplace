@@ -15,8 +15,7 @@ public class Downloading{
 
 	  System.setProperty("webdriver.chrome.driver", "C:\\Users\\s546945\\Downloads\\chromedriver_win32\\chromedriver.exe");
 
-	  
-	  WebDriver driver = new ChromeDriver();
+	  	  WebDriver driver = new ChromeDriver();
 	  driver.manage().window().maximize();
 	  driver.get("http://localhost:8080/#/");
 	  
