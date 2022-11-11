@@ -2,7 +2,7 @@
   <div>
     <Menu></Menu>
     <h3>User Registration</h3>
-    <form class="col-lg-6 offset-lg-3">
+    <form class="col-lg-8 offset-lg-4">
       <div class="">
         <div class="form-group row">
           <label for="SID" class="col-sm-2 col-form-label">SID</label>
@@ -59,22 +59,21 @@
           </div>
         </div>
         <br>
-        <br>
-        <p id="paragraph" name="paragraph"></p>
-        <button type="submit" v-on:click="Register" class="btn btn-primary">Register</button>
-        <br>
+        <br />
+          <div class="btn-center col-sm-8">
+            <b-button variant="primary" type="submit"> Register </b-button>
+          </div>
+
       </div>
     </form>
   </div>
 </template>
 <script>
-import Menu from "./Menu.vue"
+
 
 export default ({
   name: "RegisterUser",
-  components: {
-        Menu
-    },
+  
   data() {
     return {
       student: {
