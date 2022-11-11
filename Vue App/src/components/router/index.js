@@ -32,7 +32,11 @@ const routes = [
         path: "/AddProduct",
         component: AddProduct,
     },
-     
+    {
+        path: "/Clothing",
+        component: Clothing,
+    },
+    
 ]
 
 
