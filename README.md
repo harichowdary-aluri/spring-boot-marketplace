@@ -31,7 +31,7 @@ Northwest Missouri State University</br>
 A web application that uses Spring and Angular as Front end and backend  framework with MYSQL as it's backend database with a slick UI user interface.</br>
 Frontend - Angular </br>
 Backend - Springboot </br>
-Database - Mysql </br>
+Database - Amazon AWS RDS </br>
 
 ## Team members & Roles <a name="roles"></a>
 Dr.Chandra Mouli kotteti </br>
