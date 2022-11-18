@@ -31,7 +31,7 @@ Northwest Missouri State University</br>
 A web application that uses Spring and Angular as Front end and backend  framework with MYSQL as it's backend database with a slick UI user interface.</br>
 Frontend - Angular </br>
 Backend - Springboot </br>
-Database - Mysql </br>
+Database - Amazon AWS RDS </br>
 
 ## Team members & Roles <a name="roles"></a>
 Dr.Chandra Mouli kotteti </br>
@@ -88,10 +88,10 @@ Expected entities(will make changes as we go further)
 
   ## Selenium Testing :
   
-  Selenium is a free (open-source) automated testing framework used to verify web applications across many platforms and browsers. To construct Selenium Test   Scripts, you can use a variety of computer languages, including Java, C#, and Python. Selenium testing is the term used to describe testing carried out with the Selenium testing tool.
+  Selenium is a free (open-source) automated testing framework used to verify web applications across many platforms and browsers. To construct Selenium Test   Scripts, you can use a variety of computer languages, including Java, C#, and Python. Selenium testing is the term used to describe testing carried out with the Selenium testing tool
 
   ## Database link 
-[Remote Database URL](https://www.freesqldatabase.com/)
+[Remote Database URL]([https://www.freesqldatabase.com/](https://us-east-2.console.aws.amazon.com/rds/home?ad=c&cp=bn&p=rds&region=us-east-2#database:id=database-1;is-cluster=false))
 
   ## Login to MarketPlace
 [login page](https://github.com/harichowdary-aluri/gdp_1-project/blob/main/app/login/login.component.html)
