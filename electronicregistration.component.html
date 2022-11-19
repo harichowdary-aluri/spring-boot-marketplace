@@ -1,0 +1,103 @@
+<html>
+
+<head>
+  <div class="header" style="overflow-x: hidden">
+    <h1 class="navbarHeader">MARKETPLACE</h1>
+  </div>
+  <style>
+    .navbarHeader {
+      background-color: #1f5a7c;
+      font-weight: bold;
+      color: whitesmoke;
+      text-align: center;
+      height: 60px;
+    }
+    .b1{
+      text-align: center;
+      align-self: center;
+    }
+
+    head {
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+    integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+    integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+    crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div >
+    <h3 style="text-align:center;color:rgb(143, 79, 88);" >Electronics</h3>
+    <br>
+    <form class="col-md-8 offset-lg-4">
+
+      <div class="form-group row">
+        <label for="Category" class="col-sm-2">CATEGORY</label>
+        <div class="col-sm-1">
+          <select>
+            <option class="form-control">SmartPhone</option>
+            <option class="form-control">Laptop</option>
+            <option class="form-control">TV</option>
+            <option class="form-control">Others</option>
+          </select>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <label for="productName" class="col-sm-2">PRODUCT NAME</label>
+        <div class="col-sm-5">
+          <input type="text" class="form-control" v-model="product.productName" />
+        </div>
+      </div>  
+      <div class="form-group row">
+        <label for="modelName" class="col-sm-2">MODEL NAME</label>
+        <div class="col-sm-5">
+          <input type="text" class="form-control" v-model="product.modelName" />
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="dimensions" class="col-sm-2">DIMENSIONS</label>
+        <div class="col-sm-5">
+          <input type="text" class="form-control" placeholder="dimensions in inches" v-model="product.dimensions" />
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="noOFDaysUsed" class="col-sm-2 ">NO OF DAYS USED</label>
+        <div class="col-sm-5">
+          <input type="text" class="form-control" v-model="product.noOfDaysUsed" />
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="qtnAvailable" class="col-sm-2">QTY AVAILABLE</label>
+        <div class="col-sm-2">
+          <input type="number" value="1">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="description" class="col-sm-2 ">PRODUCT DESCRIPTION</label>
+        <div class="col-sm-5">
+          <input type="text" class="form-control" v-model="product.description" />
+        </div>
+      </div>
+      <br>
+      <div class="form-group row">
+        <div class="col-sm-3">
+          <input type="file" id="myFile" name="filename">
+        </div>
+      </div>
+  </form>
+  <div style="text-align:center">
+    <button type="submit" v-on:click="Register" class="btn btn-primary b1">SUBMIT</button>
+  </div>
+  </div>
+
+</body>
+</html>
