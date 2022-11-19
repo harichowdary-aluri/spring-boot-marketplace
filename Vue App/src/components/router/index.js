@@ -9,6 +9,7 @@ import Automobiles from '../Automobiles';
 import Clothing from '../Clothing';
 import AddProduct from '../AddProduct';
 import HouseHold from '../HouseHold';
+import Forgetpassword from '../Forgetpassword'
 Vue.use(VueRouter);
 
 const routes = [
@@ -16,6 +17,11 @@ const routes = [
         path: "/register",
         component: RegisterUser,
     },
+    {
+        path: "/forget",
+        component: Forgetpassword ,
+    },
+
     {
         path: "/login",
         component: Login,
