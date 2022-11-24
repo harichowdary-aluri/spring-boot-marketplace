@@ -9,7 +9,7 @@ import Automobiles from '../Automobiles';
 import Clothing from '../Clothing';
 import AddProduct from '../AddProduct';
 import HouseHold from '../HouseHold';
-import Forgetpassword from '../Forgetpassword'
+import Others from '../Others';
 Vue.use(VueRouter);
 
 const routes = [
@@ -17,11 +17,6 @@ const routes = [
         path: "/register",
         component: RegisterUser,
     },
-    {
-        path: "/forget",
-        component: Forgetpassword ,
-    },
-
     {
         path: "/login",
         component: Login,
@@ -42,6 +37,19 @@ const routes = [
         path: "/Clothing",
         component: Clothing,
     },
+    {
+        path: "/Automobiles",
+        component: Automobiles,
+    },
+    {
+        path: "/HouseHold",
+        component: HouseHold,
+    },
+    {
+        path: "/Others",
+        component: Others
+    }
+    
     
 ]
 
