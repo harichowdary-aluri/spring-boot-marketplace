@@ -93,21 +93,34 @@ export default ({
                 price:"",
                 modelName: "",
                 capacity: "",
-                daysUsed: "",
-                qtyAvailable: "",
+                noOfDaysUsed: "",
+                Quantity_available: "",
                 description: "",
-                image: ""
+                files: []
             }
         };
     },
     methods: {
 
         onFileSelected(event) {
-            this.Automobiles.image = event.target.files[0];
+            this.Automobiles.files = event.target.files;
         },
 
+        
+
         RegisterProduct() {
-            axios.post
+            // this.Automobiles.productName = event.target.name;
+           // this.Automobiles.companyName = event.targte.companyName
+            console.log(this.Automobiles)
+
+            helper.sendRequest(this.Automobiles)
+        
+            axios.post('/ProductRegistration',this.Automobiles, {
+                headers:{
+                    'Content-type':'Application/json'
+                }
+            } )
+        
         }
 
     },
