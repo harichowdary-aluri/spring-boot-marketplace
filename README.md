@@ -76,8 +76,7 @@ Expected entities(will make changes as we go further)
    - SellerName
    - sellerContactInfo
    - Sold
-   - quantitySold
-   
+   - quantitySold   
    ## Entities in Table 3(Category)
  - Category
    - categoryId
