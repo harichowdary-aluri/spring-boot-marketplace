@@ -93,22 +93,32 @@ export default ({
                 houseHoldId: "",
                 subcategory: "",
                 productName: "",
-                daysUsed: "",
+                noOfDaysUsed: "",
                 price:"",
-                qtyAvailable: "",
+                Quantity_available: "",
                 description: "",
-                image: ""
+                files: []
             }
         };
     },
     methods: {
 
         onFileSelected(event) {
-            this.HouseHold.image = event.target.files[0];
+            this.HouseHold.image = event.target.files;
         },
 
         RegisterProduct() {
             axios.post
+            console.log(this.HouseHold)
+
+helper.sendRequest(this.HouseHold)
+
+axios.post('/ProductRegistration',this.HouseHold, {
+    headers:{
+        'Content-type':'Application/json'
+    }
+} )
+
         }
 
     },
