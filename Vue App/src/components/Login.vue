@@ -11,6 +11,7 @@
               id="username"
               class="input-field"
               type="text"
+              v-model="login.username"
               placeholder="Enter username"
               required
             ></b-form-input>
@@ -22,25 +23,70 @@
               type="password"
               required
               placeholder="Enter password"
+              v-model="login.password"
               autocomplete="on"
             ></b-form-input>
           </b-form-group>
           <br />
-          <div class="btn-center">
-            <b-button variant="primary" type="submit"> Login </b-button>
-          </div>
+          
+           <div class="col-md-11"> <b-button variant="primary" type="submit"  v-on:click="Login" > Login </b-button>
+            &nbsp&nbsp&nbsp<b-button variant="primary" type="submit" v-on:click="Forgot" > Forgot password </b-button></div>
+        
         </b-form>
       </div>
     </b-col>
   </b-container>
 </template>
 <script>
-export default {
+import Forgetpassword from './Forgetpassword.vue';
+
+export default (
+  {
   name: "Login",
-  methods: {
-    login() {},
+  
+data() {
+    return {
+      login: {
+        username: "",
+        password: ""
+      }
+    };
   },
-};
+  methods: {
+    Login() {
+      console.log("inside method")
+      console.log(this.login);
+
+      this.$axios
+        .post("http://localhost:8082/login",this.login)
+        .then((res) => {
+          if (res.status == 200) {
+            this.data=res;
+            
+            console.log(this.data)
+            alert(this.data.data);
+
+            if(this.data.data=="Login successful")
+            {
+              console.log("Inside successfull login");
+              window.location.href = "/#/Home";
+            }
+          }
+          else
+          {
+            this.data=res;
+            console.log(this.data);
+            alert(this.data.data);
+          }
+
+        });
+    },
+    Forgot(){
+      window.location.href = "/#/forgetpassword";
+    }
+  },
+}
+);
 </script>
 
 <style scoped>
