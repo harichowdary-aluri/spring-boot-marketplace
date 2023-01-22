@@ -1,85 +1,102 @@
 <template>
   <div>
     <Menu></Menu>
-    <h3>User Registration</h3>
-    <form class="col-lg-8 offset-lg-4">
+    <h4>User Registration</h4>
+    <form class="col-lg-6 offset-lg-3">
       <div class="">
         <div class="form-group row">
-          <label for="SID" class="col-sm-2 col-form-label">SID</label>
+          <label for="SID" class="col-sm-4 col-form-label">SID</label>
           <div class="col-sm-5">
             <input type="text" class="form-control" v-model="student.sID" />
           </div>
         </div>
         <div class="form-group row">
-          <label for="fname" class="col-sm-2 col-form-label">First Name</label>
+          <label for="fname" class="col-sm-4 col-form-label">First Name</label>
           <div class="col-sm-5">
             <input type="text" class="form-control" v-model="student.firstName" />
           </div>
         </div>
         <div class="form-group row">
-          <label for="lname" class="col-sm-2 col-form-label">Last Name</label>
+          <label for="lname" class="col-sm-4 col-form-label">Last Name</label>
           <div class="col-sm-5">
             <input type="text" class="form-control" v-model="student.lastName" />
           </div>
         </div>
         <div class="form-group row">
-          <label for="Email" class="col-sm-2 col-form-label">Email</label>
+          <label for="lname" class="col-sm-4 col-form-label">Password</label>
+          <div class="col-sm-5">
+            <input type="password" class="form-control" v-model="student.password" />
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="lname" class="col-sm-4 col-form-label">Confirm Password</label>
+          <div class="col-sm-5">
+            <input type="password" class="form-control" v-model="student.confirmPassword" />
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="Email" class="col-sm-4 col-form-label">Email</label>
           <div class="col-sm-5">
             <input type="text" class="form-control" v-model="student.email"/>
           </div>
         </div>
         <div class="form-group row">
-          <label for="phone" class="col-sm-2 col-form-label">Contact number</label>
+          <label for="phone" class="col-sm-4 col-form-label">Contact number</label>
           <div class="col-sm-5">
             <input type="text" class="form-control" v-model="student.phoneNumber" />
           </div>
         </div>
         <div class="form-group row">
-          <label for="address" class="col-sm-2 col-form-label">Address</label>
+          <label for="address" class="col-sm-4 col-form-label">Address</label>
           <div class="col-sm-5">
             <input type="text" class="form-control" v-model="student.address"/>
           </div>
         </div>
         <div class="form-group row">
-          <label for="city" class="col-sm-2 col-form-label">City</label>
+          <label for="city" class="col-sm-4 col-form-label">City</label>
           <div class="col-sm-5">
             <input type="text" class="form-control" v-model="student.city"/>
           </div>
         </div>
         <div class="form-group row">
-          <label for="state" class="col-sm-2 col-form-label">State</label>
+          <label for="state" class="col-sm-4 col-form-label">State</label>
           <div class="col-sm-5">
             <input type="text" class="form-control" v-model="student.state"/>
           </div>
         </div>
         <div class="form-group row">
-          <label for="Zip" class="col-sm-2 col-form-label">Zip code</label>
+          <label for="Zip" class="col-sm-4 col-form-label">Zip code</label>
           <div class="col-sm-5">
             <input type="text" class="form-control" v-model="student.zip" />
           </div>
         </div>
         <br>
-        <br />
-          <div class="btn-center col-sm-8">
-            <b-button variant="primary" type="submit"> Register </b-button>
-          </div>
-
+        <br>
+        <p id="paragraph" name="paragraph"></p>
+        <button type="submit" v-on:click="Register" class="btn btn-primary">Register</button>
+        <br>
       </div>
     </form>
   </div>
 </template>
 <script>
+import Menu from "./Menu.vue"
 
-
-export default ({
+export default (
+  {
   name: "RegisterUser",
-  
+  components: {
+        Menu
+    },
   data() {
     return {
       student: {
         sID: "",
         firstName: "",
         lastName: "",
+        password:"",
+        confirmPassword:"",
         email: "",
         phoneNumber: "",
         address: "",
@@ -96,12 +113,20 @@ export default ({
       console.log(this.student.sID + "sid");
 
       this.$axios
-        .post("http://localhost:8082/register",this.student )
+        .post("http://localhost:8082/register",this.student)
         .then((res) => {
           if (res.status == 200) {
-            this.data = res;
+            this.data=res;
+            
             console.log(this.data)
-            document.getElementById("paragraph").innerHTML = this.student.firstName+" is registered successfully " ;
+            document.getElementById("paragraph").innerHTML = this.data.data;
+            alert(this.data.data);
+          }
+          else
+          {
+            this.data=res;
+            console.log(this.data);
+            document.getElementById("paragraph").innerHTML =this.data.data;
           }
 
         });
