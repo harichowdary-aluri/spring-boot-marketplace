@@ -2,7 +2,7 @@
  * @Author: Your name
  * @Date:   2022-09-30 09:36:13
  * @Last Modified by:   Your name
- * @Last Modified time: 2023-01-22 13:21:51
+ * @Last Modified time: 2023-01-22 13:36:34
  */
 package com.marketplace.northwest.controller;
 
@@ -30,5 +30,23 @@ public class StudentController {
     @RequestMapping("/")
     public String home() {
         return "Hello World!";
+    }
+
+    @PostMapping("/Electronics")
+    public String saveProduct(@RequestParam("file") MultipartFile file,
+            @RequestParam("sid") String sID,
+            @RequestParam("subCategory") String subCategory,
+            @RequestParam("modelName") String modelName,
+            @RequestParam("brandName") String brandName,
+            @RequestParam("dimensions") String dimensions,
+            @RequestParam("modelName") String daysUsed,
+            @RequestParam("description") String description,
+            @RequestParam("qtyAvailable") String qtyAvailable,
+            @RequestParam("price") String price)
+
+    {
+        studentservice.saveElectronicsToDB(file, sID, subCategory, modelName, brandName,
+                dimensions, daysUsed, description, qtyAvailable, price);
+        return "Product Saved to Database Successfully";
     }
 }
