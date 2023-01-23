@@ -10,6 +10,7 @@
                         <option class="form-control">Trucks</option>
                         <option class="form-control">2-Wheelers</option>
                         <option class="form-control">Others</option>
+
                     </select>
                 </div>
             </div>
@@ -126,6 +127,3 @@ export default ({
     },
 });
 </script>
-<style>
-
-</style>
