@@ -124,6 +124,3 @@ axios.post('/ProductRegistration',this.HouseHold, {
     },
 });
 </script>
-<style>
-
-</style>
