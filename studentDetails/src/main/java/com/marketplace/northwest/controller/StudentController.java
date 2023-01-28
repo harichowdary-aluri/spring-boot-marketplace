@@ -2,7 +2,7 @@
  * @Author: Your name
  * @Date:   2022-09-30 09:36:13
  * @Last Modified by:   Your name
- * @Last Modified time: 2023-01-22 13:36:34
+ * @Last Modified time: 2023-01-27 19:09:27
  */
 package com.marketplace.northwest.controller;
 
@@ -49,4 +49,12 @@ public class StudentController {
                 dimensions, daysUsed, description, qtyAvailable, price);
         return "Product Saved to Database Successfully";
     }
+
+    @GetMapping("/findById/{id}")
+	public Electronics findByElectronicId(@PathVariable("id") int id) {
+		
+		studentservice.findByElectronicId(id);
+		return studentservice.findByElectronicId(id);
+		
+	}
 }
