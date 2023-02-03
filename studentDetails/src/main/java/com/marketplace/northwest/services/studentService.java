@@ -3,7 +3,7 @@
  * @Author: Your name
  * @Date:   2023-01-27 19:01:57
  * @Last Modified by:   Your name
- * @Last Modified time: 2023-02-03 10:13:06
+ * @Last Modified time: 2023-02-03 10:15:17
  */
 
 import java.io.IOException;
@@ -59,5 +59,9 @@ public class StudentService {
         etr.setPrice(price);
 
         electronicsRepo.save(etr);
+    }
+
+    public Electronics findByElectronicId(Integer id) {
+        return electronicsRepo.findById(id).orElse(null);
     }
 }
