@@ -3,7 +3,7 @@
  * @Author: Your name
  * @Date:   2023-01-27 19:01:57
  * @Last Modified by:   Your name
- * @Last Modified time: 2023-02-03 10:15:17
+ * @Last Modified time: 2023-02-03 10:19:04
  */
 
 import java.io.IOException;
@@ -63,5 +63,10 @@ public class StudentService {
 
     public Electronics findByElectronicId(Integer id) {
         return electronicsRepo.findById(id).orElse(null);
+    }
+
+    // Ads Functionality
+    public Electronics findByStudentSid(String sID) {
+        return electronicsRepo.findBysID(sID);
     }
 }
