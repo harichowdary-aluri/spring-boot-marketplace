@@ -2,7 +2,7 @@
  * @Author: Your name
  * @Date:   2022-09-30 09:36:13
  * @Last Modified by:   Your name
- * @Last Modified time: 2023-01-27 19:09:27
+ * @Last Modified time: 2023-02-10 17:37:35
  */
 package com.marketplace.northwest.controller;
 
@@ -51,10 +51,17 @@ public class StudentController {
     }
 
     @GetMapping("/findById/{id}")
-	public Electronics findByElectronicId(@PathVariable("id") int id) {
-		
-		studentservice.findByElectronicId(id);
-		return studentservice.findByElectronicId(id);
-		
-	}
+    public Electronics findByElectronicId(@PathVariable("id") int id) {
+
+        studentservice.findByElectronicId(id);
+        return studentservice.findByElectronicId(id);
+
+    }
+
+    @GetMapping("/findBySid/{sID}")
+    public Electronics findWithSid(@PathVariable("sID") String sID) {
+
+        return studentservice.findByStudentSid(sID);
+
+    }
 }
