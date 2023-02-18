@@ -103,6 +103,28 @@ public class AdsPageService {
 
 		return adsPageItems;
 	}
+	private Collection<? extends AdsPageItem> householdsToAdsPageItems(List<Household> households) {
+		if (Objects.isNull(households) || households.isEmpty()) {
+			return Collections.emptyList();
+		}
 
+		List<AdsPageItem> adsPageItems = new ArrayList<>();
+
+		households.forEach(am -> {
+			AdsPageItem item = new AdsPageItem();
+			
+			item.setCategory("Household");
+			item.setId(am.getId());
+			item.setDescription(am.getDescription());
+			item.setImages(am.getImages());
+			item.setPrice(am.getPrice());
+			item.setProductName(am.getProductName());
+			item.setQtyAvailable(am.getQtyAvailable());
+			
+			adsPageItems.add(item);
+		});
+
+		return adsPageItems;
+	}
 
 }
