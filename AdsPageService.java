@@ -80,6 +80,29 @@ public class AdsPageService {
 
 		return adsPageItemsResponse;
 	}
+	private Collection<? extends AdsPageItem> miscellenousToAdsPageItems(List<Miscellenous> miscellenous) {
+		if (Objects.isNull(miscellenous) || miscellenous.isEmpty()) {
+			return Collections.emptyList();
+		}
+
+		List<AdsPageItem> adsPageItems = new ArrayList<>();
+
+		miscellenous.forEach(am -> {
+			AdsPageItem item = new AdsPageItem();
+			
+			item.setCategory("Miscellenous");
+			item.setId(am.getId());
+			item.setDescription(am.getDescription());
+			item.setImages(am.getImages());
+			item.setPrice(am.getPrice());
+			item.setProductName(am.getProductName());
+			item.setQtyAvailable(am.getQtyAvailable());
+			
+			adsPageItems.add(item);
+		});
+
+		return adsPageItems;
+	}
 
 
 }
