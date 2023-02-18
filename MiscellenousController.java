@@ -1,10 +1,10 @@
+
 /**
  * @Author: Your name
  * @Date:   2023-02-17 19:50:39
  * @Last Modified by:   Your name
- * @Last Modified time: 2023-02-17 20:09:59
+ * @Last Modified time: 2023-02-17 20:11:53
  */
-package com.marketplace.Controllers;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -71,4 +71,46 @@ public class MiscellenousController {
         updatedMisc.setImages(service.getMiscellenousByID(updatedMisc.getId()).getImages());
         return service.saveAndUpdateProduct(updatedMisc);
     }
+
+    @RequestMapping(value = "/updateProductImages/{id}", method = RequestMethod.POST, consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public Miscellenous updateMiscellenousImages(@PathVariable int id, @RequestParam("images") MultipartFile[] files)
+            throws JsonProcessingException {
+        Miscellenous misc = service.getMiscellenousByID(id);
+        misc.setImages(misc.getImages() + s3service.getImageLinks(files));
+        return service.saveAndUpdateProduct(misc);
+    }
+
+    @DeleteMapping("/deleteImages/{productId}")
+    public Miscellenous deleteProductImages(@PathVariable("productId") int productId,
+            @RequestParam("filename") String filename) {
+        Miscellenous misc = service.getMiscellenousByID(productId);
+        // System.out.println(filename);
+        // System.out.println("----------------------------");
+        String images = misc.getImages();
+        // System.out.println("----------------------------");
+        // System.out.println(images);
+        try {
+            s3service.deleteFile(filename.substring(filename.lastIndexOf("/") + 1));
+            String newImages = images.replace(filename + " ", "");
+            // System.out.println(filename.substring(filename.lastIndexOf("/") + 1));
+            // System.out.println("----------------------------------");
+            misc.setImages(newImages);
+            return service.saveAndUpdateProduct(misc);
+        } catch (Exception e) {
+            return null;
+        }
+
+    }
+
+    @DeleteMapping("/delete/{productId}")
+    public List<Miscellenous> deleteProduct(@PathVariable int productId) {
+        String[] images = service.getMiscellenousByID(productId).getImages().split(" ");
+        for (String s : images) {
+            if (s.length() > 1) {
+                s3service.deleteFile(s);
+            }
+        }
+        return service.deleteProduct(productId);
+    }
+
 }
