@@ -126,5 +126,28 @@ public class AdsPageService {
 
 		return adsPageItems;
 	}
+	private Collection<? extends AdsPageItem> electronicsToAdsPageItems(List<Electronics> electronics) {
+		if (Objects.isNull(electronics) || electronics.isEmpty()) {
+			return Collections.emptyList();
+		}
+
+		List<AdsPageItem> adsPageItems = new ArrayList<>();
+
+		electronics.forEach(am -> {
+			AdsPageItem item = new AdsPageItem();
+			item.setCategory("Electronics");
+			item.setId(am.getId());
+			item.setDescription(am.getDescription());
+			item.setImages(am.getImages());
+			item.setPrice(am.getPrice());
+			item.setProductName(am.getProductName());
+			item.setQtyAvailable(am.getQtyAvailable());
+			
+			adsPageItems.add(item);
+		});
+
+		return adsPageItems;
+	}
+
 
 }
