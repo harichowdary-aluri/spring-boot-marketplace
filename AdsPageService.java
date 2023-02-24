@@ -126,5 +126,73 @@ public class AdsPageService {
 
 		return adsPageItems;
 	}
+	private Collection<? extends AdsPageItem> electronicsToAdsPageItems(List<Electronics> electronics) {
+		if (Objects.isNull(electronics) || electronics.isEmpty()) {
+			return Collections.emptyList();
+		}
 
+		List<AdsPageItem> adsPageItems = new ArrayList<>();
+
+		electronics.forEach(am -> {
+			AdsPageItem item = new AdsPageItem();
+			item.setCategory("Electronics");
+			item.setId(am.getId());
+			item.setDescription(am.getDescription());
+			item.setImages(am.getImages());
+			item.setPrice(am.getPrice());
+			item.setProductName(am.getProductName());
+			item.setQtyAvailable(am.getQtyAvailable());
+			
+			adsPageItems.add(item);
+		});
+
+		return adsPageItems;
+	}
+
+	private Collection<? extends AdsPageItem> clothingsToAdsPageItems(List<Clothing> clothes) {
+		if (Objects.isNull(clothes) || clothes.isEmpty()) {
+			return Collections.emptyList();
+		}
+
+		List<AdsPageItem> adsPageItems = new ArrayList<>();
+
+		clothes.forEach(am -> {
+			AdsPageItem item = new AdsPageItem();
+			
+			item.setCategory("Clothing");
+			item.setId(am.getId());
+			item.setDescription(am.getDescription());
+			item.setImages(am.getImages());
+			item.setPrice(am.getPrice());
+			item.setProductName(am.getProductName());
+			item.setQtyAvailable(am.getQtyAvailable());
+			
+			adsPageItems.add(item);
+		});
+
+		return adsPageItems;
+	}
+	private Collection<? extends AdsPageItem> automobilesToAdsPageItems(List<Automobiles> automobiles) {
+		if (Objects.isNull(automobiles) || automobiles.isEmpty()) {
+			return Collections.emptyList();
+		}
+
+		List<AdsPageItem> adsPageItems = new ArrayList<>();
+
+		automobiles.forEach(am -> {
+			AdsPageItem item = new AdsPageItem();
+			
+			item.setCategory("Automobiles");
+			item.setId(am.getId());
+			item.setDescription(am.getDescription());
+			item.setImages(am.getImages());
+			item.setPrice(am.getPrice());
+			item.setProductName(am.getProductName());
+			item.setQtyAvailable(am.getQtyAvailable());
+			
+			adsPageItems.add(item);
+		});
+
+		return adsPageItems;
+	}
 }
