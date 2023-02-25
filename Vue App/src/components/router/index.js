@@ -16,6 +16,7 @@ import Clothing from '../Clothing';
 import AddProduct from '../AddProduct';
 import HouseHold from '../HouseHold';
 import Others from '../Others';
+import Dialler from '../Dialler';
 Vue.use(VueRouter);
 
 const routes = [
