@@ -29,9 +29,10 @@ Northwest Missouri State University</br>
 
 ## Technical Stack <a name="stack"></a>
 A web application that uses Spring and Angular as Front end and backend  framework with MYSQL as it's backend database with a slick UI user interface.</br>
-Frontend - Angular </br>
+Frontend - Vue </br>
 Backend - Springboot </br>
 Database - Amazon AWS RDS </br>
+Buckets - Amazon S3
 
 ## Team members & Roles <a name="roles"></a>
 Dr.Chandra Mouli kotteti </br>
