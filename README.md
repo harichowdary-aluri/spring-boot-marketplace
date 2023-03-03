@@ -96,3 +96,7 @@ Expected entities(will make changes as we go further)
   ## Login to MarketPlace
 [login page](https://github.com/harichowdary-aluri/gdp_1-project/blob/main/app/login/login.component.html)
 
+ ## Application hosting
+ Planning to host application on AWS EC2 Instance
+
+
