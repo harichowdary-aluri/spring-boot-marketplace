@@ -8,6 +8,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class AdsPageItem {
+	
+	private int id;
 	private String category;  		// Automobile/Clothing/Electronics/Misc
 	private String productName;
     private String description;
@@ -15,6 +17,13 @@ public class AdsPageItem {
     private int qtyAvailable;
     private double price;
     
+    
+    public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public String getCategory() {
 		return category;
 	}
