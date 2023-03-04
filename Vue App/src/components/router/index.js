@@ -36,10 +36,10 @@ const routes = [
         path: "/Electronics",
         component: Electronics,
     },
-    // {
-    //     path: "/AddProduct",
-    //     component: AddProduct,
-    // },
+    {
+         path: "/Dialler",
+        component: Dialler,
+    },
     {
         path: "/Clothing",
         component: Clothing,
