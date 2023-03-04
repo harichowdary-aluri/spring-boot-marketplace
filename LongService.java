@@ -18,5 +18,16 @@ public class LongService {
             userRepository.save(user);
         }
     }
+    
+    public void givenNotAuthenticatedUser_whenChangingPassword_thenRedirect() {
+        Map<String, String> params = new HashMap<String, String>();
+        params.put("oldpassword", "abc");
+        params.put("password", "xyz");
+
+        Response response = RestAssured.with().params(params).post(URL);
+
+        assertEquals(302, response.statusCode());
+        assertFalse(response.body().asString().contains("Password updated successfully"));
+    }
 
 }
