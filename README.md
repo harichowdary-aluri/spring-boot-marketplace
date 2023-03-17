@@ -98,5 +98,5 @@ Expected entities(will make changes as we go further)
 
  ## Application hosting
  Planning to host application on AWS EC2 Instance
-
+ Backend deployment with jar files
 
