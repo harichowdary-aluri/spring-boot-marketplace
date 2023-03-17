@@ -25,6 +25,15 @@ public class PasswordController {
 
     return ResponseEntity.ok().build();
   }
+    
+  @PostMapping("/sendResetOtp")
+  public ResponseEntity<?> sendResetOtp(@RequestParam("email") String email) throws Exception {
+    // Call the user service to handle the password reset logic
+    userService.sendResetOtp(email);
 
+    return ResponseEntity.ok().build();
+  }
+  
+  
 }
 
