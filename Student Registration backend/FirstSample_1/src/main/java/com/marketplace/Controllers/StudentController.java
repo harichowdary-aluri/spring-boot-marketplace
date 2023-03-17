@@ -1,5 +1,6 @@
 package com.marketplace.Controllers;
 import com.marketplace.*;
+import com.marketplace.Entity.Clothing;
 import com.marketplace.Entity.Electronics;
 import com.marketplace.Entity.Login;
 import com.marketplace.Entity.Student;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -96,43 +98,34 @@ public class StudentController {
 		
 	}
 	
-	@PostMapping("/Electronics")
-	//@CrossOrigin(origins = "http://localhost:8080")
-    public String saveProduct(@RequestParam("file") MultipartFile file,
-    		@RequestParam("sid") String sID,
-    		@RequestParam("subCategory") String subCategory,
-    		@RequestParam("modelName") String modelName,
-    		@RequestParam("brandName") String brandName,
-			@RequestParam("dimensions") String dimensions,
-			@RequestParam("daysUsed") String daysUsed,
-			@RequestParam("description") String description,
-			@RequestParam("qtyAvailable") String qtyAvailable,
-			@RequestParam("price") String price)
+	@GetMapping("/student/{id}")
+	public ResponseEntity<Student> getUserProfile(@PathVariable("id") String sID)
+	{
+		System.out.println("inside the user profile");
+		Student profile= studentservice.getStudentById(sID);
+		return new ResponseEntity<>(profile, HttpStatus.OK);
+	}
 
-    		
-    {
+	@PutMapping("/updateProfile/{id}")
+    public Student updateProfile(@PathVariable("id") String id, @RequestBody Student updatedProfile){
 		
-    	studentservice.saveElectronicsToDB(file, sID, subCategory, modelName,brandName,
-    			dimensions,daysUsed,description,qtyAvailable,price);
-    	return "Product Saved to Database Successfully";
+		Student profile= studentservice.getStudentById(id);
+		if(profile!=null)
+		{
+			profile.setAddress(updatedProfile.getAddress());
+			profile.setPhoneNumber(updatedProfile.getPhoneNumber());
+			profile.setEmail(updatedProfile.getEmail());
+			profile.setCity(updatedProfile.getCity());
+			profile.setZip(updatedProfile.getZip());
+			profile.setState(updatedProfile.getState());
+			profile.setFirstName(updatedProfile.getFirstName());
+			profile.setLastName(updatedProfile.getLastName());
+		
+			studentservice.save(profile);
+			return profile;
+		}
+		
+		return profile;
+       
     }
-	
-	@GetMapping("/findById/{id}")
-	//@CrossOrigin(origins = "http://localhost:8080")
-	public Electronics findByElectronicId(@PathVariable("id") int id) {
-		
-		studentservice.findByElectronicId(id);
-		return studentservice.findByElectronicId(id);
-		
-	}
-	
-	@GetMapping("/findBySid/{sID}")
-	//@CrossOrigin(origins = "http://localhost:8080")
-	public Electronics findWithSid(@PathVariable("sID") String sID) {
-		
-		return studentservice.findByStudentSid(sID);
-		
-	}
-	
-	
 }
