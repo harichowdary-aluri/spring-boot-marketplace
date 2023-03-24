@@ -1,3 +1,9 @@
+/**
+ * @Author: Your name
+ * @Date:   2023-03-24 17:39:57
+ * @Last Modified by:   Your name
+ * @Last Modified time: 2023-03-24 17:43:32
+ */
 package com.marketplace.Services;
 
 import com.marketplace.Entity.Clothing;
@@ -39,4 +45,13 @@ public class ClothingService {
 		 * 
 		 * return filteredList;
 		 */
+    }
+
+    public List<Clothing> saveProduct(Clothing cloth)
+    {
+    	System.out.println("Inside the serice method "+ cloth);
+    	
+
+        repository.save(cloth);
+        return getAllClothes();
     }
