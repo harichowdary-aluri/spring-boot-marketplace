@@ -83,6 +83,10 @@ public class StudentService {
 		passwordResetService.sendPasswordResetOtp(email, otp);
 	}
 	
+	private String generateOtp() {
+		// Generate a random 6-digit OTP
+		return String.format("%06d", new Random().nextInt(999999));
+	}
 }
 
 
