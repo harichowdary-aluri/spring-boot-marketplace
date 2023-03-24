@@ -64,7 +64,24 @@ public class StudentService {
 		emailService.sendPasswordResetConfirmation(user.getEmail());
 	}
 
-	
+	public void sendResetOtp(String email) throws Exception {
+
+		Student user = studentRepository.findByEmail(email);
+
+		// Check if the user exists and if the OTP matches
+		if (user == null ) {
+			throw new Exception("Invalid user");
+		}
+		// Generate a new OTP
+		String otp = generateOtp();
+
+		// Update the user's record in the database with the new OTP
+		user.setOtp(otp);
+		studentRepository.save(user);
+
+		// Send the OTP to the user via email
+		passwordResetService.sendPasswordResetOtp(email, otp);
+	}
 	
 }
 
