@@ -92,6 +92,9 @@ Expected entities(will make changes as we go further)
 
   ## Database link 
 [Remote Database URL](https://us-east-2.console.aws.amazon.com/rds/home?ad=c&cp=bn&p=rds&region=us-east-2#database:id=database-1;is-cluster=false)
+  ## AWS EC2 Instance Database Endpoint
+[Endpoint URL](https://us-east-1.console.aws.amazon.com/rds/home?region=us-east-1#database:id=marketplace-dev-database;is-cluster=false;tab=configuration)
+
 
   ## Login to MarketPlace
 [login page](https://github.com/harichowdary-aluri/gdp_1-project/blob/main/app/login/login.component.html)
