@@ -18,7 +18,7 @@
           <br />
 
           <div class="col-md-8">
-            <router-link to="/Forgetpassword">Forgot password</router-link>
+            <router-link to="/Forgetpassword">Forgot Password</router-link>
             &nbsp;&nbsp;&nbsp;<router-link to="/register">Signup</router-link>
           </div>
           <div class="col-md-11"> <b-button variant="primary" type="submit"> Login </b-button></div>
@@ -31,8 +31,6 @@
   </b-container>
 </template>
 <script>
-
-//import Forgetpassword from './Forgetpassword.vue';
 
 export default (
   {
@@ -71,11 +69,17 @@ export default (
                   // this.$router.push('/Home')
 
               }
-              else 
-              // if (this.data.data === "User is not registered, Please sign in") 
+              else if (this.data.data === "User is not registered, Please sign in") 
               {
                 this.$router.push('/register')
               }
+
+              else
+              {
+                this.$router.push('/')
+              }
+
+              
              
             }
             else {
@@ -88,7 +92,7 @@ export default (
       },
     
       Forgot() {
-        this.$router.push('/Forgetpassword')
+    //    this.$router.push('/Forgetpassword')
       }
     },
   }
