@@ -82,45 +82,84 @@
 </template>
 <script>
 import axios from "axios";
+import Vue from 'vue';
+import formData from 'form-data';
 
 
 export default ({
     name: "HouseHold",
 
     data() {
-        return {
+
+        return Vue.observable({
+            formdata: new formData(),
             HouseHold: {
-                houseHoldId: "",
                 subcategory: "",
                 productName: "",
-                noOfDaysUsed: "",
+                daysUsed: "",
                 price:"",
-                Quantity_available: "",
+                qtyAvailable: "",
                 description: "",
-                files: []
-            }
-        };
+                images: "",
+                studentId:""
+            },
+            imgArry: [],
+        });
     },
     methods: {
 
         onFileSelected(event) {
-            this.HouseHold.image = event.target.files;
+            this.image = event.target.files;
+            console.log(this.image, 'img')
+            // this.formdata.append('images',this.image)
+            console.log(event.target.files.length, "size")
+            let size = event.target.files.length
+            if (size == 1) {
+                this.formdata.append('images', this.image[0])
+            }
+            else {
+                console.log("Inside", size)
+                for (let i = 0; i < size; i++) {
+
+                    this.imgArry[i] = this.image[i];
+
+                    console.log(this.imgArry[i], "insides for")
+                     this.formdata.append('images', this.imgArry[i]);
+                }
+
+               // this.formdata.append('images[]', this.imgArry);
+                /* this.imgArry.forEach(function (element) {
+                     console.log("index ", element);
+                 });*/
+
+            }
+            this.formdata.forEach(function (value, key) {
+                console.log(key + ": image" + JSON.stringify(value));
+            });
         },
 
-        RegisterProduct() {
-            axios.post
-            console.log(this.HouseHold)
+        RegisterProduct(HouseHold) {
+            this.HouseHold.studentId= sessionStorage.getItem('user');
+            this.formdata.append('household', JSON.stringify(this.HouseHold));
+            this.$axios
+                .post("http://localhost:8082/household/addProduct", this.formdata)
+                .then((res) => {
+                    if (res.status == 200) {
+                        console.log("success")
+                        alert("Successfully uploaded the product");
+                    }
+                    else {
+                        this.data = res;
+                        console.log(this.data);
+                        //document.getElementById("paragraph").innerHTML = this.data.data;
+                    }
 
-helper.sendRequest(this.HouseHold)
-
-axios.post('/ProductRegistration',this.HouseHold, {
-    headers:{
-        'Content-type':'Application/json'
-    }
-} )
-
+                });
         }
 
     },
 });
 </script>
+<style>
+
+</style>
