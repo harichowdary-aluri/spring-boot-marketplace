@@ -2,7 +2,7 @@
  * @Author: Your name
  * @Date:   2023-03-24 17:39:57
  * @Last Modified by:   Your name
- * @Last Modified time: 2023-03-24 17:43:32
+ * @Last Modified time: 2023-03-31 10:22:57
  */
 package com.marketplace.Services;
 
@@ -54,4 +54,13 @@ public class ClothingService {
 
         repository.save(cloth);
         return getAllClothes();
+    }
+
+    public Clothing saveAndUpdateProduct(Clothing updated){
+        return repository.save(updated);
+    }
+
+    public List<Clothing> deleteProduct(int id){
+        repository.deleteById(id);
+        return repository.findAll();
     }
