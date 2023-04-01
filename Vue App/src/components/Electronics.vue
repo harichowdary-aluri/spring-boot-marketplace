@@ -72,35 +72,82 @@
 </template>
 <script>
 import axios from "axios";
-
+import Vue from 'vue';
+import formData from 'form-data';
 
 export default ({
     name: "Electronics",
 
     data() {
-        return {
+        return Vue.observable({
+            formdata: new formData(),
+
             Electronics: {
-                electronicsId: "",
                 subcategory: "",
                 productName: "",
                 modelName: "",
-                price:"",
+                price: "",
                 dimensions: "",
                 daysUsed: "",
                 qtyAvailable: "",
                 description: "",
-                image: ""
-            }
-        };
+                images: "",
+                studentId:""
+
+            },
+            imgArry: [],
+
+        });
     },
     methods: {
 
-        onFilesSelected(event) {
-            this.Electronics.image = event.target.files[0];
+        onFileSelected(event) {
+            this.image = event.target.files;
+            console.log(this.image, 'img')
+            // this.formdata.append('images',this.image)
+            console.log(event.target.files.length, "size")
+            let size = event.target.files.length
+            if (size == 1) {
+                this.formdata.append('images', this.image[0])
+            }
+            else {
+                console.log("Inside", size)
+                for (let i = 0; i < size; i++) {
+
+                    this.imgArry[i] = this.image[i];
+
+                    console.log(this.imgArry[i], "insides for")
+                     this.formdata.append('images', this.imgArry[i]);
+                }
+
+               // this.formdata.append('images[]', this.imgArry);
+                /* this.imgArry.forEach(function (element) {
+                     console.log("index ", element);
+                 });*/
+
+            }
+            this.formdata.forEach(function (value, key) {
+                console.log(key + ": image" + JSON.stringify(value));
+            });
         },
 
-        RegisterProduct() {
-            axios.post
+        RegisterProduct(Electronics) {
+            this.Electronics.studentId = (sessionStorage.getItem('user'));
+            this.formdata.append('electronics', JSON.stringify(this.Electronics));
+            this.$axios
+                .post("http://localhost:8082/electronics/addProduct", this.formdata)
+                .then((res) => {
+                    if (res.status == 200) {
+                        console.log("success")
+                        alert("Successfully uploaded the product");
+                    }
+                    else {
+                        this.data = res;
+                        console.log(this.data);
+                        //document.getElementById("paragraph").innerHTML = this.data.data;
+                    }
+
+                });
         }
 
     },
