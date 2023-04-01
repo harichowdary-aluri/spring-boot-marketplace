@@ -100,6 +100,5 @@ Expected entities(will make changes as we go further)
 [login page](https://github.com/harichowdary-aluri/gdp_1-project/blob/main/app/login/login.component.html)
 
  ## Application hosting
- Planning to host application on AWS EC2 Instance
- Backend deployment with jar files
+ Deployed on AWS EC2 Instance
 
