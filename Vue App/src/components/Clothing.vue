@@ -20,17 +20,23 @@
                 </div>
             </div>
             <div class="form-group row">
-                <label for="size" class="col-sm-5">Size</label>
+                <label for="size" class="col-sm-5 col-form-label">Size</label>
                 <div class="col-sm-5">
-                    <input type="Checkbox"  v-model="Clothing.size" value ="yes">XXS
-                    <input type="Checkbox"  v-model="Clothing.size" value ="yes">XS
-                    <input type="Checkbox"  v-model="Clothing.size" value ="yes">S
-                    <input type="Checkbox"  v-model="Clothing.size" value ="yes">M
-                    <input type="Checkbox"  v-model="Clothing.size" value ="yes">L
-                    <input type="Checkbox"  v-model="Clothing.size" value ="yes">XL
-                    <input type="Checkbox"  v-model="Clothing.size" value ="yes">XXL
+                    <input type="text" class="form-control" v-model="Clothing.size" />
                 </div>
             </div>
+       <!--     <div class="form-group row">
+                <label for="size" class="col-sm-5">Size</label>
+                <div class="col-sm-5">
+                    <input type="Checkbox" id = "XXS" v-model="Clothing.size" value ="XXS">XXS
+                    <input type="Checkbox" id = "XS" v-model="Clothing.size" value ="XS">XS
+                    <input type="Checkbox" id = "S" v-model="Clothing.size" value ="S">S
+                    <input type="Checkbox" id = "M" v-model="Clothing.size" value ="M">M
+                    <input type="Checkbox" id = "L" v-model="Clothing.size" value ="L">L
+                    <input type="Checkbox" id = "XL" v-model="Clothing.size" value ="XL">XL
+                    <input type="Checkbox" id = "XXL" v-model="Clothing.size" value ="XXL">XXL
+                </div>
+            </div> -->
             <div class="form-group row">
                 <label for="colour" class="col-sm-5">Colour</label>
                 <div class="col-sm-5">
@@ -77,15 +83,17 @@
 </template>
 <script>
 import axios from "axios";
+import Vue from 'vue';
+import formData from 'form-data';
 
 
 export default ({
     name: "Clothing",
 
     data() {
-        return {
+        return Vue.observable({
+            formdata: new formData(),
             Clothing: {
-                clothingId: "",
                 subcategory: "",
                 productName: "",
                 size: "",
@@ -94,18 +102,62 @@ export default ({
                 qtyAvailable: "",
                 price: "",
                 description:"",
-                image: ""
-            }
-        };
+                images: "",
+                studentId:""
+            },
+            imgArry: [],
+        });
     },
     methods: {
 
-        onFilesSelected(event) {
-            this.Electronics.image = event.target.files[0];
+        onFileSelected(event) {
+            this.image = event.target.files;
+            console.log(this.image, 'img')
+            // this.formdata.append('images',this.image)
+            console.log(event.target.files.length, "size")
+            let size = event.target.files.length
+            if (size == 1) {
+                this.formdata.append('images', this.image[0])
+            }
+            else {
+                console.log("Inside", size)
+                for (let i = 0; i < size; i++) {
+
+                    this.imgArry[i] = this.image[i];
+
+                    console.log(this.imgArry[i], "insides for")
+                     this.formdata.append('images', this.imgArry[i]);
+                }
+
+               // this.formdata.append('images[]', this.imgArry);
+                /* this.imgArry.forEach(function (element) {
+                     console.log("index ", element);
+                 });*/
+
+            }
+            this.formdata.forEach(function (value, key) {
+                console.log(key + ": image" + JSON.stringify(value));
+            });
         },
 
-        RegisterProduct() {
-            axios.post
+        RegisterProduct(Clothing) {
+            this.Clothing.studentId = (sessionStorage.getItem('user'));
+            console.log(this.Clothing, 'Clothing object');
+            this.formdata.append('clothing', JSON.stringify(this.Clothing));
+            this.$axios
+                .post("http://localhost:8082/clothing/addProduct", this.formdata)
+                .then((res) => {
+                    if (res.status == 200) {
+                        console.log("success")
+                        alert("Successfully uploaded the product");
+                    }
+                    else {
+                        this.data = res;
+                        console.log(this.data);
+                        //document.getElementById("paragraph").innerHTML = this.data.data;
+                    }
+
+                });
         }
 
     },
