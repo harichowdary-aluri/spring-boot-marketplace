@@ -1,5 +1,5 @@
 <template>
-    <div class="background" style="background-color: azure; height: 850px;">
+    <div class="background" style="background-color: azure; height: 650px;">
         <b-container id="mainContainer" align-v="center">
 
             <b-row align-v="center" align-h="center">
@@ -12,49 +12,30 @@
                                     <b-form-input id="category" class="input" v-model="this.category" type="text"
                                         placeholder="Category" readonly></b-form-input>
                                 </b-form-group>
-                                <b-form-group id="input-group-1" label="Sub Category" label-for="Sub Category"
-                                    style="color: gray">
-                                    <b-form-input id="subcategory" class="input" v-model="Automobiles.subcategory"
-                                        type="text" placeholder="Subcategory" required></b-form-input>
-                                </b-form-group>
                                 <b-form-group id="input-group-1" label="Product Name" label-for="productName"
                                     style="color: gray">
-                                    <b-form-input id="productName" class="input" v-model="Automobiles.productName"
+                                    <b-form-input id="productName" class="input" v-model="Others.productName"
                                         type="text" placeholder="ProductName" required></b-form-input>
                                 </b-form-group>
 
-                                <b-form-group id="input-group-1" label="Company Name" label-for="companyName"
-                                    style="color: gray">
-                                    <b-form-input id="companyName" class="input" v-model="Automobiles.companyName"
-                                        placeholder="Company Name" type="text"></b-form-input>
-                                </b-form-group>
-                                <b-form-group id="input-group-1" label="Model Name" label-for="modelName"
-                                    style="color: gray">
-                                    <b-form-input id="modelName" class="input" v-model="Automobiles.modelName"
-                                        placeholder="ModelName" type="text"></b-form-input>
-                                </b-form-group>
-                                <b-form-group id="input-group-1" label="Capacity" label-for="capacity"
-                                    style="color: gray">
-                                    <b-form-input id="capacity" class="input" v-model="Automobiles.capacity"
-                                        placeholder="No of seats" type="text"></b-form-input>
-                                </b-form-group>
+                              
                                 <b-form-group id="input-group-1" label-for="noOFDaysUsed" label="No of Days Used"
                                     style="color: gray">
-                                    <b-form-input id="noOFDaysUsed" class="input" v-model="Automobiles.daysUsed" type="text"
+                                    <b-form-input id="noOFDaysUsed" class="input" v-model="Others.daysUsed" type="text"
                                         placeholder="Days Used"></b-form-input>
                                 </b-form-group>
                                 <b-form-group id="input-group-1" label-for="qtnAvailable" label="Quantity Available"
                                     style="color: gray">
-                                    <b-form-input id="qtnAvailable" class="input" v-model="Automobiles.qtyAvailable"
+                                    <b-form-input id="qtnAvailable" class="input" v-model="Others.qtyAvailable"
                                         type="number" placeholder="Qty Available" min="1" required></b-form-input>
                                 </b-form-group>
                                 <b-form-group id="input-group-1" label-for="price" label="Price" style="color: gray">
-                                    <b-form-input id="price" class="input" v-model="Automobiles.price" type="text"
+                                    <b-form-input id="price" class="input" v-model="Others.price" type="text"
                                         placeholder="Price" required></b-form-input>
                                 </b-form-group>
                                 <b-form-group id="input-group-1" label="Product Description" label-for="description"
                                     style="color: gray">
-                                    <b-form-input id="description" class="input" v-model="Automobiles.description"
+                                    <b-form-input id="description" class="input" v-model="Others.description"
                                         type="text" placeholder="Product Description" ></b-form-input>
                                 </b-form-group>
                                 <!-- <div class="d-flex justify-content-center mt-3">
@@ -80,7 +61,7 @@
                             <div class="form-group row ">
                                 <label for="Category" class="col-sm-5" style="color: gray">Status</label>
                                 <div class="col-sm-5">
-                                    <select style="width: 190px" v-model="Automobiles.status" class="form-control">
+                                    <select style="width: 190px" v-model="Others.status" class="form-control">
                                         <option class="">Available</option>
                                         <option class="">Sold</option>
                                     </select>
@@ -103,15 +84,16 @@
 
     </div>
 </template>
+
 <script>
 
 import Vue from 'vue';
 import formData from 'form-data';
 
 export default ({
-    name: "UpdateAutomobiles",
+    name: "UpdateOthers",
     mounted() {
-        this.productId=  sessionStorage.getItem("automobileId");
+        this.productId=  sessionStorage.getItem("miscellenousId");
         this.getData(this.productId);
     },
 
@@ -119,27 +101,23 @@ export default ({
         return Vue.observable({
             formdata: new formData(),
             productId: "",
-            category: "Automobiles",
-            Automobiles: {
-                id: "",
-                subcategory: "",
+            category: "Others",
+            Others: {
                 productName: "",
-                modelName: "",
-                price: "",
-                capacity: "",
+                price:"",
                 daysUsed: "",
                 qtyAvailable: "",
                 description: "",
-                status:"",
                 images: "",
+                status:""
             },
-            
             imgArry: [],
-            show: true
+            show:true
 
         });
     },
     methods: {
+
         onFileSelected(event) {
             this.image = event.target.files;
             console.log(this.image, 'img')
@@ -170,9 +148,9 @@ export default ({
                 console.log(key + ": image" + JSON.stringify(value));
             });
 
-            this.Automobiles.id= this.productId;
+            this.Others.id= this.productId;
             this.$axios
-            .post("http://localhost:8082/automobiles/updateProductImages/"+this.Automobiles.id, this.formdata)
+            .post("http://localhost:8082/miscellenous/updateProductImages/"+this.Others.id, this.formdata)
                 .then((res) => {
                     if (res.status == 200) {
                         this.data = res;
@@ -195,21 +173,20 @@ export default ({
 
         },
 
-
         UpdateProduct(Electronics) {
-            this.Automobiles.id= this.productId;
+            this.Others.id= this.productId;
             this.$axios
-            .put("http://localhost:8082/automobiles/updateAutomobile",this.Automobiles)
+            .put("http://localhost:8082/miscellenous/updateMisc",this.Others)
                 .then((res) => {
                     if (res.status == 200) {
                         this.data = res;
 
                         console.log(this.data)
-                        this.Automobiles = this.data.data
-                        this.category= 'Automobiles'
+                        this.Others = this.data.data
+                        this.category= 'Others'
                         alert("Successfully updated the product");
-                       // window.location.href="/#/Ads"
-                       this.$router.push("/Ads")
+                        //window.location.href="/#/Ads"
+                        this.$router.push("/Ads")
 
                     }
                     else {
@@ -224,15 +201,15 @@ export default ({
             
             this.$axios
                 .get(
-                    "http://localhost:8082/automobiles/product/" + id
+                    "http://localhost:8082/miscellenous/product/" + id
                 )
                 .then((res) => {
                     if (res.status == 200) {
                         this.data = res;
 
                         console.log(this.data)
-                        this.Automobiles = this.data.data
-                        this.category= 'Automobiles'
+                        this.Others = this.data.data
+                        this.category= 'Others'
 
                     }
                     else {
