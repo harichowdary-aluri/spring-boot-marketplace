@@ -17,18 +17,20 @@
                             </carousel>
 
                             <h5 class="card-title">{{ c.productName }}</h5>
-                            <p class="card-text">${{ c.price }}</p>
-                            <p class="card-text">{{ c.description }}</p>
-                            <p class="card-text">Size: {{ c.size }}</p>
-                            <p class="card-text">{{ c.daysUsed }} Days used</p>
-                            <p class="card-text">{{ c.qtyAvailable }} Available</p>
+                            <p class="card-text" v-if="c.price" style="color: blue">${{ c.price }}</p>
+                            <p class="card-text" v-if="c.description" style="color: rebeccapurple">{{ c.description }}</p>
+                            <p class="card-text"  v-if="c.size" style="color: gray">Size: {{ c.size }}</p>
+                            <p class="card-text" v-if="c.daysUsed" style="color: red">{{ c.daysUsed }} Days used</p>
+                            <p class="card-text" v-if="c.qtyAvailable " style="color: royalblue">{{ c.qtyAvailable }} Available</p>
+                            <font-awesome-icon icon="phone" class="rotate-icon" style="color: green;"/> 
+                            <span style="margin-left:7px;">{{c.qtyAvailable}}</span>
                             <br />
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <a href="#/home">Home</a>
+        <router-link to="/Home">Home</router-link>
     </div>
 </template>
 <script>
@@ -67,6 +69,7 @@ export default {
     methods: {
 
         async clothing() {
+            console.log("234r")
             await this.$axios
                 .get(
                     "http://localhost:8082/clothing/clothes"
@@ -122,10 +125,13 @@ export default {
 
 .a1 {
 
-    height: 550px;
-    width: 330px;
+    height: 500px;
+    width: 400px;
 }
 
+.rotate-icon {
+  transform: rotate(90deg); /* Apply rotation to the icon */
+}
 
 .card {
     flex: 1;
