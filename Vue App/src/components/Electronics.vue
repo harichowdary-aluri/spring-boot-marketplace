@@ -1,11 +1,12 @@
 <template>
     <div>
         <br>
-        <form class="offset-lg-3 col-md-6">
-            <div class="form-group row ">
-                <label for="Category" class="col-sm-5">Sub-Category</label>
+        <form class="col-md-12">
+            <span class="text-center mb-4 other-account" style="color:red">All the fields with * are mandatory </span>
+            <div class="form-group row p-10">
+                <label for="Category" class="col-sm-4">Sub-Category*</label>
                 <div class="col-sm-6">
-                    <select v-model="Electronics.subcategory">
+                    <select v-model="Electronics.subcategory" required class="form-select">
                         <option class="form-control">SmartPhone</option>
                         <option class="form-control">Laptop</option>
                         <option class="form-control">TV</option>
@@ -14,61 +15,60 @@
                 </div>
             </div>
             <br>
-            <div class="form-group row">
-                <label for="productName" class="col-sm-5 col-form-label">Product Name</label>
-                <div class="col-sm-5">
-                    <input type="text" class="form-control" v-model="Electronics.productName" />
+            <div class="form-group row p-10">
+                <label for="productName" class="col-sm-4 col-form-label">Product Name*</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" v-model="Electronics.productName" required />
                 </div>
             </div>
-            <div class="form-group row">
-                <label for="modelName" class="col-sm-5">Model Name</label>
-                <div class="col-sm-5">
+            <div class="form-group row p-10">
+                <label for="modelName" class="col-sm-4">Model Name</label>
+                <div class="col-sm-6">
                     <input type="text" class="form-control" v-model="Electronics.modelName" />
                 </div>
             </div>
-            <div class="form-group row">
-                <label for="dimensions" class="col-sm-5">Dimensions</label>
-                <div class="col-sm-5">
+            <div class="form-group row p-10">
+                <label for="dimensions" class="col-sm-4">Dimensions</label>
+                <div class="col-sm-6">
                     <input type="text" class="form-control" placeholder="dimensions in inches"
                         v-model="Electronics.dimensions" />
                 </div>
             </div>
-            <div class="form-group row">
-                <label for="noOFDaysUsed" class="col-sm-5 ">No Of Days Used</label>
-                <div class="col-sm-5">
-                    <input type="text" class="form-control" v-model="Electronics.daysUsed" />
+            <div class="form-group row p-10">
+                <label for="noOFDaysUsed" class="col-sm-4 ">No Of Days Used</label>
+                <div class="col-sm-6">
+                    <input type="number" min="0" class="form-control" v-model="Electronics.daysUsed" required />
                 </div>
             </div>
-            <div class="form-group row">
-                <label for="qtnAvailable" class="col-sm-5">Qty Available</label>
-                <div class="col-sm-5">
-                    <input type="number" value="1" v-model="Electronics.qtyAvailable">
+            <div class="form-group row p-10">
+                <label for="qtnAvailable" class="col-sm-4">Qty Available*</label>
+                <div class="col-sm-6">
+                    <input type="number" class="form-control" min="1" v-model="Electronics.qtyAvailable" required>
+                </div>
+            </div>  
+            <div class="form-group row p-10">
+                <label for="price" class="col-sm-4">Price*</label>
+                <div class="col-sm-6">
+                    <input type="number" min="0" class="form-control" v-model="Electronics.price" required />
                 </div>
             </div>
-            <div class="form-group row">
-                <label for="price" class="col-sm-5 ">Price</label>
-                <div class="col-sm-5">
-                    <input type="text" class="form-control" v-model="Electronics.price" />
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="description" class="col-sm-5 ">Product Description</label>
-                <div class="col-sm-5">
+            <div class="form-group row p-10">
+                <label for="description" class="col-sm-4 ">Product Description</label>
+                <div class="col-sm-6">
                     <input type="text" class="form-control" v-model="Electronics.description" />
                 </div>
             </div>
-            <br>
-            <div class="form-group row">
-                <div class="col-sm-5">
-                    <input type="file" id="myFile" name="filename" multiple @change="onFileSelected">
+            <div class="form-group row p-10">
+                <label for="formFileMultiple" class="col-sm-4 form-label">Multiple files input*</label>
+                <div class="col-sm-6">
+                    <input class="form-control" type="file" multiple id="myFile" name="filename" @change="onFileSelected" />
                 </div>
             </div>
         </form>
         <div style="text-align:center">
-            <button type="submit" v-on:click="RegisterProduct" class="btn btn-primary b1">SUBMIT</button>
+            <button type="submit" v-on:click="RegisterProduct"  :disabled="isDisabled" class="btn btn-primary b1">SUBMIT</button>
         </div>
     </div>
-
 </template>
 <script>
 import axios from "axios";
@@ -92,16 +92,33 @@ export default ({
                 qtyAvailable: "",
                 description: "",
                 images: "",
-                studentId:""
+                studentId: "",
+                status: "",
+                phoneNumber:""
 
             },
             imgArry: [],
+            selectedFiles: [],
+            file:'false'
 
         });
     },
+
+    computed:
+    {
+       isDisabled()
+       {
+        return this.Electronics.subcategory ===''|| this.Electronics.productName ==='' || this.Electronics.price==='' || this.Electronics.qtyAvailable==='' || this.file==='false';
+       }
+    },
+
     methods: {
 
         onFileSelected(event) {
+            
+            this.file='true';
+            this.selectedFiles = event.target.files;
+
             this.image = event.target.files;
             console.log(this.image, 'img')
             // this.formdata.append('images',this.image)
@@ -117,10 +134,10 @@ export default ({
                     this.imgArry[i] = this.image[i];
 
                     console.log(this.imgArry[i], "insides for")
-                     this.formdata.append('images', this.imgArry[i]);
+                    this.formdata.append('images', this.imgArry[i]);
                 }
 
-               // this.formdata.append('images[]', this.imgArry);
+                // this.formdata.append('images[]', this.imgArry);
                 /* this.imgArry.forEach(function (element) {
                      console.log("index ", element);
                  });*/
@@ -132,7 +149,12 @@ export default ({
         },
 
         RegisterProduct(Electronics) {
+            
+
+
             this.Electronics.studentId = (sessionStorage.getItem('user'));
+            this.Electronics.status = 'Available'
+            console.log(this.formdata);
             this.formdata.append('electronics', JSON.stringify(this.Electronics));
             this.$axios
                 .post("http://localhost:8082/electronics/addProduct", this.formdata)
@@ -140,6 +162,7 @@ export default ({
                     if (res.status == 200) {
                         console.log("success")
                         alert("Successfully uploaded the product");
+                        window.location.reload();
                     }
                     else {
                         this.data = res;
@@ -154,5 +177,7 @@ export default ({
 });
 </script>
 <style>
-
+.p-10 {
+  padding-bottom: 10px;
+}
 </style>
