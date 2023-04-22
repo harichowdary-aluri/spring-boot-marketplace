@@ -10,7 +10,7 @@
 - [Testing](#testing)
 
 ## Project Objective <a name="objective"></a>
- The main purpose of this project is to develop a web application for Northwest Missouri State University, which facilitates the users to purchase and auction the products like vehicles, house hold utilities, clothing, electronics, gardening tools and equipments.
+ The main purpose of this project is to develop a web application for Northwest Missouri State University, which facilitates the users to purchase the products like vehicles, house hold utilities, clothing, electronics, gardening tools and equipments.
  
 ## Link to projects Page
 
@@ -102,6 +102,6 @@ Expected entities(will make changes as we go further)
  ## Application hosting
  Deployed on AWS EC2 Instance
  
- ##Documentation
+ ## Documentation
  [Overleaf](https://www.overleaf.com/login)
 

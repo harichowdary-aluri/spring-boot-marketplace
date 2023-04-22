@@ -1,11 +1,12 @@
 <template>
     <div>
         <br>
-        <form class="offset-lg-3 col-md-6">
-            <div class="form-group row ">
-                <label for="Category" class="col-sm-5">Sub-Category</label>
+        <form class="col-md-12">
+            <span class="text-center mb-4 other-account" style="color:red">All the fields with * are mandatory </span>
+            <div class="form-group row p-10">
+                <label for="Category" class="col-sm-4">Sub-Category*</label>
                 <div class="col-sm-6">
-                    <select class="independent" v-model="HouseHold.subcategory">
+                    <select class="independent form-select"  v-model="HouseHold.subcategory">
                         <optgroup class="form-control" label="KitchenEquipment"> 
                           <option class="form-control">Drying Rack</option>
                           <option class="form-control">Pot Holder</option>
@@ -37,45 +38,46 @@
                 </div>
             </div>
             <br>
-            <div class="form-group row">
-                <label for="productName" class="col-sm-5 col-form-label">Product Name</label>
-                <div class="col-sm-5">
+            <div class="form-group row p-10">
+                <label for="productName" class="col-sm-4 col-form-label">Product Name*</label>
+                <div class="col-sm-6">
                     <input type="text" class="form-control" v-model="HouseHold.productName" />
                 </div>
             </div>
-            <div class="form-group row">
-                <label for="noOFDaysUsed" class="col-sm-5 ">No Of Days Used</label>
-                <div class="col-sm-5">
+            <div class="form-group row p-10">
+                <label for="noOFDaysUsed" class="col-sm-4 col-form-label ">No Of Days Used</label>
+                <div class="col-sm-6">
                     <input type="text" class="form-control" v-model="HouseHold.daysUsed" />
                 </div>
             </div>
-            <div class="form-group row">
-                <label for="qtnAvailable" class="col-sm-5">Qty Available</label>
-                <div class="col-sm-5">
-                    <input type="number" value="1" v-model="HouseHold.qtyAvailable">
+            <div class="form-group row p-10">
+                <label for="qtnAvailable" class="col-sm-4 col-form-label">Qty Available*</label>
+                <div class="col-sm-6">
+                    <input type="number" min="1" class="form-control" v-model="HouseHold.qtyAvailable">
                 </div>
             </div>
-            <div class="form-group row">
-                <label for="price" class="col-sm-5 ">Price</label>
-                <div class="col-sm-5">
-                    <input type="text" class="form-control" v-model="HouseHold.price" />
+            <div class="form-group row p-10">
+                <label for="price" class="col-sm-4 col-form-label ">Price*</label>
+                <div class="col-sm-6">
+                    <input type="number" min="0" class="form-control" v-model="HouseHold.price" />
                 </div>
             </div>
-            <div class="form-group row">
-                <label for="description" class="col-sm-5 ">Product Description</label>
-                <div class="col-sm-5">
+            <div class="form-group row p-10">
+                <label for="description" class="col-sm-4 col-form-label">Product Description</label>
+                <div class="col-sm-6">
                     <input type="text" class="form-control" v-model="HouseHold.description" />
                 </div>
             </div>
             <br>
-            <div class="form-group row">
-                <div class="col-sm-5">
-                    <input type="file" id="myFile" name="filename" multiple @change="onFileSelected">
+            <div class="form-group row p-10">
+                <label for="formFileMultiple" class="col-sm-4 form-label">Multiple files input*</label>
+                <div class="col-sm-6">
+                    <input type="file" class="form-control" id="myFile" name="filename" multiple @change="onFileSelected">
                 </div>
             </div>
         </form>
         <div style="text-align:center">
-            <button type="submit" v-on:click="RegisterProduct" class="btn btn-primary b1">SUBMIT</button>
+            <button type="submit" v-on:click="RegisterProduct" :disabled="isDisabled" class="btn btn-primary b1">SUBMIT</button>
         </div>
     </div>
 
@@ -101,14 +103,26 @@ export default ({
                 qtyAvailable: "",
                 description: "",
                 images: "",
-                studentId:""
+                studentId:"",
+                status:"",
+                phoneNumber:""
             },
             imgArry: [],
+            file:'false'
         });
+    },
+
+    computed:
+    {
+       isDisabled()
+       {
+        return this.HouseHold.subcategory ===''|| this.HouseHold.productName ==='' || this.HouseHold.price==='' || this.HouseHold.qtyAvailable==='' || this.file==='false';
+       }
     },
     methods: {
 
         onFileSelected(event) {
+            this.file='true'
             this.image = event.target.files;
             console.log(this.image, 'img')
             // this.formdata.append('images',this.image)
@@ -140,6 +154,7 @@ export default ({
 
         RegisterProduct(HouseHold) {
             this.HouseHold.studentId= sessionStorage.getItem('user');
+            this.HouseHold.status= 'Available'
             this.formdata.append('household', JSON.stringify(this.HouseHold));
             this.$axios
                 .post("http://localhost:8082/household/addProduct", this.formdata)
@@ -147,6 +162,7 @@ export default ({
                     if (res.status == 200) {
                         console.log("success")
                         alert("Successfully uploaded the product");
+                        window.location.reload();
                     }
                     else {
                         this.data = res;
@@ -162,4 +178,7 @@ export default ({
 </script>
 <style>
 
+.p-10 {
+	  padding-bottom: 10px;
+	}
 </style>
